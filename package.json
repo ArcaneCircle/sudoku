@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "webxdc-dev": "webxdc-dev run ."
   },
   "dependencies": {
     "react": "^18.1.0",
