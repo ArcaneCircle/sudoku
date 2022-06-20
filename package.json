@@ -12,6 +12,7 @@
     "webxdc-dev": "pnpm build && webxdc-dev run dist"
   },
   "dependencies": {
+    "@fontsource/noto-sans": "^4.5.10",
     "moment": "^2.29.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
