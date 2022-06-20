@@ -11,8 +11,6 @@ const getUniqueSudoku = (difficulty: Difficulty, e?: React.ChangeEvent<HTMLSelec
   const sudoku = getSudoku(currentDifficulty)
   const initArray = sudoku.puzzle.replace(/\-/g, '0').split('')
   const solvedArray = sudoku.solution.split('')
-  // eslint-disable-next-line no-console
-  console.log(initArray)
   return [initArray, solvedArray]
 }
 
