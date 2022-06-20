@@ -14,9 +14,10 @@ export const Difficulty = (props: DifficultyProps) => {
     <div className="status__difficulty">
       <span className="status__difficulty-text">Difficulty:&nbsp;&nbsp;</span>
       <select name="status__difficulty-select" className="status__difficulty-select" defaultValue={difficulty} onChange={props.onChange}>
-        <option value="Easy">Easy</option>
-        <option value="Medium">Medium</option>
-        <option value="Hard">Hard</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+        <option value="expert">Expert</option>
       </select>
     </div>
   )
