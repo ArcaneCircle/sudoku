@@ -12,6 +12,7 @@
     "webxdc-dev": "pnpm build && webxdc-dev run dist"
   },
   "dependencies": {
+    "moment": "^2.29.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "usehooks-ts": "^2.5.3"

@@ -13,6 +13,7 @@ specifiers:
   eruda: ^2.4.1
   eslint: ^8.16.0
   jsdom: ^19.0.0
+  moment: ^2.29.3
   react: ^18.1.0
   react-dom: ^18.1.0
   typescript: ^4.6.4
@@ -24,6 +25,7 @@ specifiers:
   webxdc-dev: ^0.1.3
 
 dependencies:
+  moment: 2.29.3
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   usehooks-ts: 2.5.4_react@18.1.0
@@ -3330,6 +3332,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /moment/2.29.3:
+    resolution: {integrity: sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==}
+    dev: false
 
   /mrmime/1.0.0:
     resolution: {integrity: sha512-a70zx7zFfVO7XpnQ2IX1Myh9yY4UYvfld/dikWRnsXxbyvMcfz+u6UfgNAtH+k2QqtJuzVpv6eLTx1G2+WKZbQ==}
