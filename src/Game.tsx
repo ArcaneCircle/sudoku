@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
+import type { Difficulty } from 'sudoku-gen/dist/types/difficulty.type'
 import { Header } from './components/layout/Header'
 import { GameSection } from './components/layout/GameSection'
 import { StatusSection } from './components/layout/StatusSection'
 import { Footer } from './components/layout/Footer'
-import { getUniqueSudoku } from './solver/UniqueSudoku'
+// import { getUniqueSudoku } from './solver/UniqueSudoku'
+import getUniqueSudoku from './generator/sudoku'
 import { useSudokuContext } from './context/SudokuContext'
 
 /**
@@ -45,7 +47,7 @@ export const Game: React.FC<{}> = () => {
    * Creates a new game and initializes the state variables.
    */
   function _createNewGame(e?: React.ChangeEvent<HTMLSelectElement>) {
-    const [temporaryInitArray, temporarySolvedArray] = getUniqueSudoku(difficulty, e)
+    const [temporaryInitArray, temporarySolvedArray] = getUniqueSudoku(difficulty as Difficulty, e)
 
     setInitArray(temporaryInitArray)
     setGameArray(temporaryInitArray)
