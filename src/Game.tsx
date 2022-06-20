@@ -217,13 +217,13 @@ export const Game: React.FC<{}> = () => {
    */
   useEffect(() => {
     _createNewGame()
-  // eslint-disable-next-line eslint-comments/no-unlimited-disable
+    // eslint-disable-next-line eslint-comments/no-unlimited-disable
   }, [])
 
   return (
     <>
-      <div className={overlay ? 'container blur' : 'container'}>
-        <Header onClick={onClickNewGame}/>
+      <div className={overlay ? 'mycontainer blur' : 'mycontainer'}>
+        <Header onClick={onClickNewGame} />
         <div className="innercontainer">
           <GameSection
             onClick={(indexOfArray: number) => onClickCell(indexOfArray)}
@@ -240,11 +240,11 @@ export const Game: React.FC<{}> = () => {
         </div>
         <Footer />
       </div>
-      <div className= { overlay
+      <div className={overlay
         ? 'overlay overlay--visible'
         : 'overlay'
-                      }
-           onClick={onClickOverlay}
+      }
+        onClick={onClickOverlay}
       >
         <h2 className="overlay__text">
           You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span>
