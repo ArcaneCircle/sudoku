@@ -1,10 +1,15 @@
-import DarkMode from './components/DarkMode'
+import React from 'react'
+import { Game } from './Game'
+import './App.css'
+import { SudokuProvider } from './context/SudokuContext'
 
-export default function App() {
+/**
+ * App is the root React component.
+ */
+export const App: React.FC<{}> = () => {
   return (
-    <main className="font-sans px-4 py-10 text-center text-xl text-black dark:text-gray-200">
-      <DarkMode />
-      <h1 className="text-4xl font-bold">Hello World</h1>
-    </main>
+    <SudokuProvider>
+      <Game />
+    </SudokuProvider>
   )
 }
