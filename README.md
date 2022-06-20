@@ -1,6 +1,6 @@
-# La cacería secreta
+# Sudoku
 
-Aventura ambientada en el mundo de Tramórea basada en [esta plantilla](https://github.com/webxdc/webxdc-react)
+Version of [this other project](https://github.com/raravi/sudoku) for Delta Chat
 
 ## Features
 
@@ -19,7 +19,6 @@ Aventura ambientada en el mundo de Tramórea basada en [esta plantilla](https://
 
 - 📦 Automatically minify, build and release your `.xdc` file
 
-
 ## Pre-packed
 
 ### UI Frameworks
@@ -35,7 +34,6 @@ Aventura ambientada en el mundo de Tramórea basada en [esta plantilla](https://
 
 - [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import) - Directly use react/react-router-dom API and others without importing
 - [usehooks-ts](https://usehooks-ts.com/) - collection of useful React hooks
-
 
 ## Usage
 
