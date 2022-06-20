@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest",
-    "webxdc-dev": "webxdc-dev run ."
+    "webxdc-dev": "pnpm build && webxdc-dev run dist"
   },
   "dependencies": {
     "react": "^18.1.0",
