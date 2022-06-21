@@ -5,7 +5,7 @@ import type { Difficulty } from 'sudoku-gen/dist/types/difficulty.type'
 import { Header } from './components/layout/Header'
 import { GameSection } from './components/layout/GameSection'
 import { StatusSection } from './components/layout/StatusSection'
-import { Footer } from './components/layout/Footer'
+// import { Footer } from './components/layout/Footer'
 // import { getUniqueSudoku } from './solver/UniqueSudoku'
 import getUniqueSudoku from './generator/sudoku'
 import { useSudokuContext } from './context/SudokuContext'
@@ -272,7 +272,7 @@ export const Game: React.FC<{}> = () => {
             onClickFastMode={onClickFastMode}
           />
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
       <div className={overlay
         ? 'overlay overlay--visible'
