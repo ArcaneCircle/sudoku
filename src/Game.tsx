@@ -163,7 +163,8 @@ export const Game: React.FC<{}> = () => {
     if (fastMode && numberSelected !== '0')
       _userFillCell(indexOfArray, numberSelected)
 
-    setCellSelected(indexOfArray)
+    if (!fastMode)
+      setCellSelected(indexOfArray)
   }
 
   /**
