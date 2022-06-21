@@ -17,6 +17,7 @@ specifiers:
   moment: ^2.29.3
   react: ^18.2.0
   react-dom: ^18.2.0
+  sudoku-gen: ^1.0.0
   typescript: ^4.7.4
   unocss: ^0.34.1
   unplugin-auto-import: ^0.7.2
@@ -30,6 +31,7 @@ dependencies:
   moment: 2.29.3
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  sudoku-gen: 1.0.0
   usehooks-ts: 2.5.4_react@18.2.0
 
 devDependencies:
@@ -4034,6 +4036,10 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
     dev: true
+
+  /sudoku-gen/1.0.0:
+    resolution: {integrity: sha512-mqYlD/bNy8rgyt3N98+aRezeN580IbcaTLpmqkX5WePDObqCvZ+0skIn+I8d3ijcEA/ftt10/a6qQXsnkYWYTQ==}
+    dev: false
 
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}

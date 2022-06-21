@@ -22,21 +22,21 @@ interface SudokuContextProps {
 
 const SudokuContext = createContext<SudokuContextProps>({
   numberSelected: '0',
-  setNumberSelected: () => {},
+  setNumberSelected: () => { },
   gameArray: [],
-  setGameArray: () => {},
-  difficulty: 'Easy',
-  setDifficulty: () => {},
+  setGameArray: () => { },
+  difficulty: 'easy',
+  setDifficulty: () => { },
   timeGameStarted: moment(),
-  setTimeGameStarted: () => {},
+  setTimeGameStarted: () => { },
   fastMode: false,
-  setFastMode: () => {},
+  setFastMode: () => { },
   cellSelected: -1,
-  setCellSelected: () => {},
+  setCellSelected: () => { },
   initArray: [],
-  setInitArray: () => {},
+  setInitArray: () => { },
   won: false,
-  setWon: () => {},
+  setWon: () => { },
 })
 
 interface SudokuProviderProps {
@@ -46,7 +46,7 @@ interface SudokuProviderProps {
 export const SudokuProvider = ({ children }: SudokuProviderProps) => {
   const [numberSelected, setNumberSelected] = useState<string>('0')
   const [gameArray, setGameArray] = useState<string[]>([])
-  const [difficulty, setDifficulty] = useState<string>('Easy')
+  const [difficulty, setDifficulty] = useState<string>('easy')
   const [timeGameStarted, setTimeGameStarted] = useState<moment.Moment>(moment())
   const [fastMode, setFastMode] = useState<boolean>(false)
   const [cellSelected, setCellSelected] = useState<number>(-1)
