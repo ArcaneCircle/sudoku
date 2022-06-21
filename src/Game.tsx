@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import type { Difficulty } from 'sudoku-gen/dist/types/difficulty.type'
@@ -13,12 +14,21 @@ import { useSudokuContext } from './context/SudokuContext'
  * Game is the main React component.
  */
 export const Game: React.FC<{}> = () => {
+  let initScore = 0
+
+  useEffect(() => {
+    window.highscores.init('Sudoku', 'scoreboard')
+    initScore = window.highscores.getScore()
+  }, [])
+
+  const [score, setScore] = useState<number>(initScore)
+
   /**
    * All the variables for holding state:
    * gameArray: Holds the current state of the game.
    * initArray: Holds the initial state of the game.
    * solvedArray: Holds the solved position of the game.
-   * difficulty: Difficulty level - 'Easy', 'Medium' or 'Hard'
+   * difficulty: Difficulty level - 'Easy', 'Medium', 'Hard' or 'Expert'.
    * numberSelected: The Number selected in the Status section.
    * timeGameStarted: Time the current game was started.
    * mistakesMode: Is Mistakes allowed or not?
@@ -42,6 +52,25 @@ export const Game: React.FC<{}> = () => {
   const [history, setHistory] = useState<string[][]>([])
   const [solvedArray, setSolvedArray] = useState<string[]>([])
   const [overlay, setOverlay] = useState<boolean>(false)
+
+  /**
+   * Calculate new score based on game difficulty
+   * @param difficulty Difficulty level - 'Easy', 'Medium', 'Hard' or 'Expert'.
+   */
+  function calculateScore(difficulty: Difficulty) {
+    switch (difficulty) {
+      case 'easy':
+        return 5
+      case 'medium':
+        return 50
+      case 'hard':
+        return 100
+      case 'expert':
+        return 250
+      default:
+        return 5
+    }
+  }
 
   /**
    * Creates a new game and initializes the state variables.
@@ -93,6 +122,9 @@ export const Game: React.FC<{}> = () => {
 
       if (_isSolved(index, value)) {
         setOverlay(true)
+        const newScore = score + calculateScore(difficulty as Difficulty)
+        setScore(newScore)
+        window.highscores.setScore(newScore, false)
         setWon(true)
       }
     }
@@ -251,6 +283,8 @@ export const Game: React.FC<{}> = () => {
         <h2 className="overlay__text">
           You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span>
         </h2>
+        <h3>Scoreboard</h3>
+        <div id="scoreboard"></div>
       </div>
     </>
   )
