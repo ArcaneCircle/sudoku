@@ -252,6 +252,7 @@ body {
 .status__action-undo,
 .status__action-erase,
 .status__action-hint,
+.status__action-scores,
 .status__action-mistakes-mode,
 .status__action-fast-mode {
   text-align: center;
@@ -260,6 +261,7 @@ body {
 
 .status__action-undo,
 .status__action-erase,
+.status__action-scores,
 .status__action-hint {
   width: 50%;
   cursor: pointer;
@@ -270,6 +272,10 @@ body {
 } */
 
 .status__action-fast-mode {
+  width: 50%;
+}
+
+.status__action-scores {
   width: 50%;
 }
 
@@ -295,6 +301,12 @@ body {
 
 .status__action-hint .status__action-svg {
   top: 11px;
+  width: 48%;
+  height: 48%;
+}
+
+.status__action-scores .status__action-svg {
+  top: 8px;
   width: 48%;
   height: 48%;
 }
@@ -504,6 +516,7 @@ input:checked + .status__action-fast-mode-slider:before {
   }
   .status__action-undo,
   .status__action-erase,
+  .status__action-scores,
   .status__action-hint {
     width: 25%;
   }
@@ -540,6 +553,7 @@ input:checked + .status__action-fast-mode-slider:before {
   }
   .status__action-undo,
   .status__action-erase,
+  .status__action-scores,
   .status__action-hint {
     width: 50%;
   }

@@ -41,7 +41,7 @@ export const Game: React.FC<{}> = () => {
     fastMode, setFastMode,
     cellSelected, setCellSelected,
     initArray, setInitArray,
-    setWon,
+    won, setWon,
   } = useSudokuContext()
   const [mistakesMode, setMistakesMode] = useState<boolean>(false)
   const [history, setHistory] = useState<string[][]>([])
@@ -238,7 +238,8 @@ export const Game: React.FC<{}> = () => {
    */
   function onClickOverlay() {
     setOverlay(false)
-    _createNewGame()
+    if (won)
+      _createNewGame()
   }
 
   /**
@@ -265,6 +266,7 @@ export const Game: React.FC<{}> = () => {
             onClickHint={onClickHint}
             onClickMistakesMode={onClickMistakesMode}
             onClickFastMode={onClickFastMode}
+            onClickScoreboard={() => setOverlay(true)}
           />
         </div>
         {/* <Footer /> */}
@@ -276,7 +278,7 @@ export const Game: React.FC<{}> = () => {
         onClick={onClickOverlay}
       >
         <h2 className="overlay__text">
-          You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span>
+          {won ? <>You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span></> : 'Scoreboard'}
         </h2>
         <div id="scoreboard"></div>
       </div>
