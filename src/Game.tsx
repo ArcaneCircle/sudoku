@@ -283,7 +283,6 @@ export const Game: React.FC<{}> = () => {
         <h2 className="overlay__text">
           You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span>
         </h2>
-        <h3>Scoreboard</h3>
         <div id="scoreboard"></div>
       </div>
     </>
