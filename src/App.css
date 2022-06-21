@@ -206,6 +206,11 @@ body {
   background-size: 0.65em auto, 100%;
 }
 
+.status__difficulty-select * {
+  color: #000;
+  background-color: #eee;
+}
+
 .status__time {
   position: relative;
   top: 70px;
