@@ -14,14 +14,9 @@ import { useSudokuContext } from './context/SudokuContext'
  * Game is the main React component.
  */
 export const Game: React.FC<{}> = () => {
-  let initScore = 0
-
   useEffect(() => {
     window.highscores.init('Sudoku', 'scoreboard')
-    initScore = window.highscores.getScore()
   }, [])
-
-  const [score, setScore] = useState<number>(initScore)
 
   /**
    * All the variables for holding state:
@@ -122,8 +117,8 @@ export const Game: React.FC<{}> = () => {
 
       if (_isSolved(index, value)) {
         setOverlay(true)
-        const newScore = score + calculateScore(difficulty as Difficulty)
-        setScore(newScore)
+        const oldScore = window.highscores.getScore()
+        const newScore = oldScore + calculateScore(difficulty as Difficulty)
         window.highscores.setScore(newScore, false)
         setWon(true)
       }
