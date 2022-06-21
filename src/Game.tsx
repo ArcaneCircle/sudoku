@@ -184,7 +184,6 @@ export const Game: React.FC<{}> = () => {
   function onClickNumber(number: string) {
     if (fastMode)
       setNumberSelected(number)
-
     else if (cellSelected !== -1)
       _userFillCell(cellSelected, number)
   }

@@ -614,3 +614,7 @@ input:checked + .status__action-fast-mode-slider:before {
   overflow-y: auto;
   margin-top: 1rem;
 }
+
+.disabled_number {
+  color: #eee;
+}
