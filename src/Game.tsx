@@ -1,12 +1,9 @@
-/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import type { Difficulty } from 'sudoku-gen/dist/types/difficulty.type'
 import { Header } from './components/layout/Header'
 import { GameSection } from './components/layout/GameSection'
 import { StatusSection } from './components/layout/StatusSection'
-// import { Footer } from './components/layout/Footer'
-// import { getUniqueSudoku } from './solver/UniqueSudoku'
 import getUniqueSudoku from './generator/sudoku'
 import { useSudokuContext } from './context/SudokuContext'
 
@@ -43,7 +40,6 @@ export const Game: React.FC<{}> = () => {
     initArray, setInitArray,
     won, setWon,
   } = useSudokuContext()
-  const [mistakesMode, setMistakesMode] = useState<boolean>(false)
   const [history, setHistory] = useState<string[][]>([])
   const [solvedArray, setSolvedArray] = useState<string[]>([])
   const [overlay, setOverlay] = useState<boolean>(false)
@@ -130,17 +126,7 @@ export const Game: React.FC<{}> = () => {
    * _fillCell function above.
    */
   function _userFillCell(index: number, value: string) {
-    if (mistakesMode) {
-      if (value === solvedArray[index]) {
-        _fillCell(index, value)
-      }
-      else {
-        // TODO: Flash - Mistakes not allowed in Mistakes Mode
-      }
-    }
-    else {
-      _fillCell(index, value)
-    }
+    _fillCell(index, value)
   }
 
   /**
@@ -207,22 +193,6 @@ export const Game: React.FC<{}> = () => {
   }
 
   /**
-   * On Click Hint,
-   * fill the selected cell if its empty or wrong number is filled.
-   */
-  function onClickHint() {
-    if (cellSelected !== -1)
-      _fillCell(cellSelected, solvedArray[cellSelected])
-  }
-
-  /**
-   * Toggle Mistakes Mode
-   */
-  function onClickMistakesMode() {
-    setMistakesMode(!mistakesMode)
-  }
-
-  /**
    * Toggle Fast Mode
    */
   function onClickFastMode() {
@@ -263,8 +233,6 @@ export const Game: React.FC<{}> = () => {
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChangeDifficulty(e)}
             onClickUndo={onClickUndo}
             onClickErase={onClickErase}
-            onClickHint={onClickHint}
-            onClickMistakesMode={onClickMistakesMode}
             onClickFastMode={onClickFastMode}
             onClickScoreboard={() => setOverlay(true)}
           />

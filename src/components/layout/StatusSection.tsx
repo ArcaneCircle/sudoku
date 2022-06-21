@@ -9,8 +9,6 @@ interface StatusSectionProps {
   onClickNumber: (number: string) => void
   onClickUndo: () => void
   onClickErase: () => void
-  onClickHint: () => void
-  onClickMistakesMode: () => void
   onClickFastMode: () => void
   onClickScoreboard: () => void
 }
