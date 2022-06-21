@@ -27,8 +27,7 @@ export const StatusSection = (props: StatusSectionProps) => {
         <Action action="undo" onClickAction={props.onClickUndo} />
         <Action action="erase" onClickAction={props.onClickErase} />
         {/* <Action action="hint" onClickAction={props.onClickHint} /> */}
-        {/* <Mode mode="mistakes" onClickMode={props.onClickMistakesMode} /> */}
-        <Mode mode="fast" onClickMode={props.onClickFastMode} />
+        <Mode onClickMode={props.onClickFastMode} />
       </div>
     </section>
   )
