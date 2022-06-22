@@ -77,7 +77,7 @@ export const Game: React.FC<{}> = () => {
       initArray: temporaryInitArray,
       currentArray: temporaryInitArray,
       solvedArray: temporarySolvedArray,
-      history: [],
+      historyArray: [] as string[][],
     }
 
     window.localStorage.setItem('sudoku-state', JSON.stringify(state))
@@ -90,6 +90,20 @@ export const Game: React.FC<{}> = () => {
     setCellSelected(-1)
     setHistory([])
     setWon(false)
+  }
+
+  /**
+   * save the current game state to local storage
+   * @param state current game state
+   */
+  function _saveState(initArray: string[], currentArray: string[], solvedArray: string[], historyArray: string[][]) {
+    const state = {
+      initArray,
+      currentArray,
+      solvedArray,
+      historyArray,
+    }
+    window.localStorage.setItem('sudoku-state', JSON.stringify(state))
   }
 
   /**
@@ -133,7 +147,7 @@ export const Game: React.FC<{}> = () => {
     if (initArray[index] === '0') {
       // Direct copy results in interesting set of problems, investigate more!
       const tempArray = gameArray.slice()
-      const tempHistory = history.slice()
+      const tempHistory = history ? history.slice() : []
 
       // Can't use tempArray here, due to Side effect below!!
       tempHistory.push(gameArray.slice())
@@ -141,7 +155,7 @@ export const Game: React.FC<{}> = () => {
 
       tempArray[index] = value
       setGameArray(tempArray)
-
+      _saveState(initArray, tempArray, solvedArray, tempHistory)
       if (_isSolved(index, value)) {
         setOverlay(true)
         const oldScore = window.highscores.getScore()
@@ -172,16 +186,8 @@ export const Game: React.FC<{}> = () => {
    * On Click of a Game cell.
    */
   function onClickCell(indexOfArray: number) {
-    if (fastMode && numberSelected !== '0') {
+    if (fastMode && numberSelected !== '0')
       _userFillCell(indexOfArray, numberSelected)
-      const state = {
-        initArray,
-        currentArray: gameArray,
-        solvedArray,
-        history,
-      }
-      window.localStorage.setItem('sudoku-state', JSON.stringify(state))
-    }
 
     if (!fastMode)
       setCellSelected(indexOfArray)
@@ -202,10 +208,11 @@ export const Game: React.FC<{}> = () => {
    * either fill cell or set the number.
    */
   function onClickNumber(number: string) {
-    if (fastMode)
+    if (fastMode) {
       setNumberSelected(number)
-    else if (cellSelected !== -1)
-      _userFillCell(cellSelected, number)
+      _saveState(initArray, gameArray, solvedArray, history)
+    }
+    else if (cellSelected !== -1) { _userFillCell(cellSelected, number) }
   }
 
   /**
@@ -217,8 +224,10 @@ export const Game: React.FC<{}> = () => {
       const tempHistory = history.slice()
       const tempArray = tempHistory.pop()
       setHistory(tempHistory)
-      if (tempArray !== undefined)
+      if (tempArray !== undefined) {
+        _saveState(initArray, gameArray, solvedArray, tempHistory)
         setGameArray(tempArray)
+      }
     }
   }
 
@@ -259,7 +268,7 @@ export const Game: React.FC<{}> = () => {
     const state = window.localStorage.getItem('sudoku-state')
     if (state) {
       const parsedState = JSON.parse(state)
-      _continueGame(parsedState.initArray, parsedState.currentArray, parsedState.solvedArray, parsedState.history)
+      _continueGame(parsedState.initArray, parsedState.currentArray, parsedState.solvedArray, parsedState.historyArray)
     }
     else {
       _createNewGame()
