@@ -15,6 +15,9 @@ export const Game: React.FC<{}> = () => {
     window.highscores.init('Sudoku', 'scoreboard')
   }, [])
 
+  // Is scoreboard empty
+  const isEmpty = document.querySelector('#scoreboard')?.innerHTML === ''
+
   /**
    * All the variables for holding state:
    * gameArray: Holds the current state of the game.
@@ -248,6 +251,7 @@ export const Game: React.FC<{}> = () => {
         <h2 className="overlay__text">
           {won ? <>You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span></> : 'Scoreboard'}
         </h2>
+        {isEmpty && <h2 className="score-row">No scores yet!</h2>}
         <div id="scoreboard"></div>
       </div>
     </>
