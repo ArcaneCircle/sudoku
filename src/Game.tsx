@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import type { Difficulty } from 'sudoku-gen/dist/types/difficulty.type'
@@ -15,7 +16,7 @@ export const Game: React.FC<{}> = () => {
     window.highscores.init('Sudoku', 'scoreboard')
   }, [])
 
-  // Is scoreboard empty
+  // Is scoreboard empty?
   const isEmpty = document.querySelector('#scoreboard')?.innerHTML === ''
 
   /**
@@ -72,6 +73,15 @@ export const Game: React.FC<{}> = () => {
   function _createNewGame(e?: React.ChangeEvent<HTMLSelectElement>) {
     const [temporaryInitArray, temporarySolvedArray] = getUniqueSudoku(difficulty as Difficulty, e)
 
+    const state = {
+      initArray: temporaryInitArray,
+      currentArray: temporaryInitArray,
+      solvedArray: temporarySolvedArray,
+      history: [],
+    }
+
+    window.localStorage.setItem('sudoku-state', JSON.stringify(state))
+
     setInitArray(temporaryInitArray)
     setGameArray(temporaryInitArray)
     setSolvedArray(temporarySolvedArray)
@@ -79,6 +89,24 @@ export const Game: React.FC<{}> = () => {
     setTimeGameStarted(moment())
     setCellSelected(-1)
     setHistory([])
+    setWon(false)
+  }
+
+  /**
+   * Continues a game from the last state.
+   * @param initArray The initial state of the game.
+   * @param currentArray The last state of the game.
+   * @param solvedArray The solved state of the game.
+   * @param historyArray The last selected number.
+   */
+  function _continueGame(initArray: string[], currentArray: string[], solvedArray: string[], historyArray: string[][]) {
+    setInitArray(initArray)
+    setGameArray(currentArray)
+    setSolvedArray(solvedArray)
+    setNumberSelected('0')
+    setTimeGameStarted(moment())
+    setCellSelected(-1)
+    setHistory(historyArray)
     setWon(false)
   }
 
@@ -144,8 +172,16 @@ export const Game: React.FC<{}> = () => {
    * On Click of a Game cell.
    */
   function onClickCell(indexOfArray: number) {
-    if (fastMode && numberSelected !== '0')
+    if (fastMode && numberSelected !== '0') {
       _userFillCell(indexOfArray, numberSelected)
+      const state = {
+        initArray,
+        currentArray: gameArray,
+        solvedArray,
+        history,
+      }
+      window.localStorage.setItem('sudoku-state', JSON.stringify(state))
+    }
 
     if (!fastMode)
       setCellSelected(indexOfArray)
@@ -216,10 +252,18 @@ export const Game: React.FC<{}> = () => {
   }
 
   /**
-   * On load, create a New Game.
+   * On load, create a New Game or continue the previous one.
    */
   useEffect(() => {
-    _createNewGame()
+    // store state in localStorage
+    const state = window.localStorage.getItem('sudoku-state')
+    if (state) {
+      const parsedState = JSON.parse(state)
+      _continueGame(parsedState.initArray, parsedState.currentArray, parsedState.solvedArray, parsedState.history)
+    }
+    else {
+      _createNewGame()
+    }
     // eslint-disable-next-line eslint-comments/no-unlimited-disable
   }, [])
 
