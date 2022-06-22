@@ -4,7 +4,7 @@
 :root {
   --background-color: #fff;
   --color-blue: hsl(210, 88%, 56%);
-  --color-grey: hsl(213, 30%, 29%);
+  --color-grey: hsl(214, 27%, 40%);
   --color-grey-light: hsl(213, 30%, 59%);
   --color-grey-lighter: hsl(213, 30%, 79%);
   --color-orange: hsl(34, 26%, 89%);
@@ -126,6 +126,7 @@ body {
 }
 
 .game__cell.game__cell--filled {
+  font-weight: 600;
   color: var(--color-grey);
 }
 
