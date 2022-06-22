@@ -107,7 +107,7 @@ body {
 }
 
 .game__board {
-  font-family: "Noto Sans", sans-serif;
+  font-family: sans-serif;
   font-size: 26px;
   margin: 30px 0;
   border: 2px solid var(--color-grey);
@@ -236,7 +236,7 @@ body {
 
 .status__number {
   text-align: center;
-  font-family: "Noto Sans", sans-serif;
+  font-family: sans-serif;
   font-size: 26px;
   padding: 12px 0;
   cursor: pointer;
