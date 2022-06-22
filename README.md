@@ -6,8 +6,6 @@ Version of [this other project](https://github.com/raravi/sudoku) for Delta Chat
 
 - ⚡️ [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
 
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
-
 - 😃 Use icons from any icon sets in [Pure CSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
 
 - ✅ Use [Vitest](http://vitest.dev/) for unit and components testing
@@ -20,15 +18,6 @@ Version of [this other project](https://github.com/raravi/sudoku) for Delta Chat
 - 📦 Automatically minify, build and release your `.xdc` file
 
 ## Pre-packed
-
-### UI Frameworks
-
-- [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
-
-### Icons
-
-- [Iconify](https://iconify.design) - use icons from any icon sets [🔍Icônes](https://icones.netlify.app/)
-- [Pure CSS Icons via UnoCSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
 
 ### Plugins
 
