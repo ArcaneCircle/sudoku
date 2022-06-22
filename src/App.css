@@ -422,7 +422,7 @@ input:checked + .status__action-fast-mode-slider:before {
 
 .overlay--visible {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
@@ -635,5 +635,5 @@ input:checked + .status__action-fast-mode-slider:before {
 }
 
 .disabled_number {
-  color: #eee;
+  color: transparent;
 }
