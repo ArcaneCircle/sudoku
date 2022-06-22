@@ -25,7 +25,6 @@ export const StatusSection = (props: StatusSectionProps) => {
       <div className="status__actions">
         <Action action="undo" onClickAction={props.onClickUndo} />
         <Action action="erase" onClickAction={props.onClickErase} />
-        {/* <Action action="hint" onClickAction={props.onClickHint} /> */}
         <Mode onClickMode={props.onClickFastMode} />
         <div className={'status__action-scores'}
           onClick={props.onClickScoreboard}
@@ -35,8 +34,6 @@ export const StatusSection = (props: StatusSectionProps) => {
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             role="img"
-            // width="2em"
-            // height="1em"
             preserveAspectRatio="xMidYMid meet"
             viewBox="0 0 40 40">
             <path
