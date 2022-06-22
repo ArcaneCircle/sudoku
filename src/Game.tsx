@@ -251,7 +251,7 @@ export const Game: React.FC<{}> = () => {
         <h2 className="overlay__text">
           {won ? <>You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span></> : <>S<span className="overlay__textspan1">c</span><span className="overlay__textspan2">o</span>r<span className="overlay__textspan1">e</span><span className="overlay__textspan2">b</span>o<span className="overlay__textspan1">a</span><span className="overlay__textspan2">r</span>d</>}
         </h2>
-        {isEmpty && <h2 className="score-row">No scores yet!</h2>}
+        {(isEmpty && !won) && <h2 className="score-row">No scores yet!</h2>}
         <div id="scoreboard"></div>
       </div>
     </>
