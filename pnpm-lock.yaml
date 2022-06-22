@@ -24,7 +24,7 @@ specifiers:
   usehooks-ts: ^2.5.4
   vite: ^2.9.12
   vitest: ^0.12.10
-  webxdc-dev: ^0.5.0
+  webxdc-dev: ^0.6.0
 
 dependencies:
   '@fontsource/noto-sans': 4.5.10
@@ -52,7 +52,7 @@ devDependencies:
   unplugin-auto-import: 0.7.2_vite@2.9.12
   vite: 2.9.12
   vitest: 0.12.10_jsdom@19.0.0
-  webxdc-dev: 0.5.0
+  webxdc-dev: 0.6.0
 
 packages:
 
@@ -996,6 +996,11 @@ packages:
     resolution: {integrity: sha512-Xx54uLJQZ19lKygFXOWsscKUbsBZW0CPykPhVQdhIeIwrbPmJzqeASDInc8nKBnp/JT6igTs82qPXz069H8I/A==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+    dev: true
+
+  /adm-zip/0.5.9:
+    resolution: {integrity: sha512-s+3fXLkeeLjZ2kLjCBwQufpI5fuN+kIGBxu6530nVQZGVol0d7Y/M88/xw9HGGUcJjKf8LutN3VPRUBq6N7Ajg==}
+    engines: {node: '>=6.0'}
     dev: true
 
   /agent-base/6.0.2:
@@ -3719,7 +3724,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -3739,7 +3743,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-pkg-up/7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -3884,7 +3887,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
@@ -4503,10 +4505,11 @@ packages:
     resolution: {integrity: sha512-5NUqC2JquIL2pBAAo/VfBP6KuGkHIZQXW/lNKupLPfhViwh8wNsu0BObtl09yuKZszeEUfbXz8xhrHvSG16Nqw==}
     dev: true
 
-  /webxdc-dev/0.5.0:
-    resolution: {integrity: sha512-ZtnifLDT/DWqvgw5sncwqaZoiOSBTFYZo4ffae91sAyQf8E+t9VoMz+Lg9u3LIc3pFd+E2T3ivOrMnRerNIYrA==}
+  /webxdc-dev/0.6.0:
+    resolution: {integrity: sha512-L4ED1UBV4nm4DrbrfhheJ/cscq6usZxM29LqqMOohNVfxyUchrfFmxDCMba8WMrl45PFfVB8SRm5vvRUj7vSzw==}
     hasBin: true
     dependencies:
+      adm-zip: 0.5.9
       commander: 9.3.0
       express: 4.18.1
       express-ws: 5.0.2_express@4.18.1
