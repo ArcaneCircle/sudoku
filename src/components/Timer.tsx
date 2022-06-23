@@ -8,7 +8,7 @@ import { useSudokuContext } from '../context/SudokuContext'
  */
 export const Timer = () => {
   const [currentTime, setCurrentTime] = useState(moment())
-  const { timeGameStarted, won } = useSudokuContext()
+  const { timeGameStarted, won, elapsedTime } = useSudokuContext()
 
   useEffect(() => {
     if (!won)
@@ -23,7 +23,7 @@ export const Timer = () => {
     const secondsTotal = currentTime.diff(timeGameStarted, 'seconds')
     if (secondsTotal <= 0)
       return '00:00'
-    const duration = moment.duration(secondsTotal, 'seconds')
+    const duration = moment.duration(secondsTotal + elapsedTime, 'seconds')
     const hours = duration.hours()
     const minutes = duration.minutes()
     const seconds = duration.seconds()

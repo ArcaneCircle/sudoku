@@ -10,6 +10,8 @@ interface SudokuContextProps {
   setDifficulty: React.Dispatch<React.SetStateAction<string>>
   timeGameStarted: moment.Moment
   setTimeGameStarted: React.Dispatch<React.SetStateAction<moment.Moment>>
+  elapsedTime: number
+  setElapsedTime: React.Dispatch<React.SetStateAction<number>>
   fastMode: boolean
   setFastMode: React.Dispatch<React.SetStateAction<boolean>>
   cellSelected: number
@@ -29,6 +31,8 @@ const SudokuContext = createContext<SudokuContextProps>({
   setDifficulty: () => { },
   timeGameStarted: moment(),
   setTimeGameStarted: () => { },
+  elapsedTime: 0,
+  setElapsedTime: () => { },
   fastMode: false,
   setFastMode: () => { },
   cellSelected: -1,
@@ -48,6 +52,7 @@ export const SudokuProvider = ({ children }: SudokuProviderProps) => {
   const [gameArray, setGameArray] = useState<string[]>([])
   const [difficulty, setDifficulty] = useState<string>('easy')
   const [timeGameStarted, setTimeGameStarted] = useState<moment.Moment>(moment())
+  const [elapsedTime, setElapsedTime] = useState<number>(0)
   const [fastMode, setFastMode] = useState<boolean>(false)
   const [cellSelected, setCellSelected] = useState<number>(-1)
   const [initArray, setInitArray] = useState<string[]>([])
@@ -64,6 +69,8 @@ export const SudokuProvider = ({ children }: SudokuProviderProps) => {
         setDifficulty,
         timeGameStarted,
         setTimeGameStarted,
+        elapsedTime,
+        setElapsedTime,
         fastMode,
         setFastMode,
         cellSelected,
@@ -80,6 +87,3 @@ export const SudokuProvider = ({ children }: SudokuProviderProps) => {
 }
 
 export const useSudokuContext = (): SudokuContextProps => useContext(SudokuContext)
-
-// Usage
-// const { numberSelected, setNumberSelected } = useNumberValue();
