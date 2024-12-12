@@ -1,32 +1,29 @@
-/// <reference types="vitest" />
+import { webxdcViteConfig } from "@webxdc/vite-plugins";
+import react from "@vitejs/plugin-react";
+import AutoImport from "unplugin-auto-import/vite";
+import { defineConfig } from "vite";
+import path from "path";
 
-import path from 'path'
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import AutoImport from 'unplugin-auto-import/vite'
+// https://vitejs.dev/config/
+export default defineConfig(
+  webxdcViteConfig({
+    plugins: [
+      react(),
 
-export default defineConfig({
-  resolve: {
-    alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+      // https://github.com/antfu/unplugin-auto-import
+      AutoImport({
+        imports: [
+          "react",
+          "react-router-dom",
+          { "usehooks-ts": ["useCounter", "useDarkMode"] },
+        ],
+        dts: true,
+      }),
+    ],
+    resolve: {
+      alias: {
+        "~": path.resolve(__dirname, "./src"),
+      },
     },
-  },
-  plugins: [
-    react(),
-
-    // https://github.com/antfu/unplugin-auto-import
-    AutoImport({
-      imports: [
-        'react',
-        'react-router-dom',
-        { 'usehooks-ts': ['useCounter', 'useDarkMode'] },
-      ],
-      dts: true,
-    }),
-  ],
-
-  // https://github.com/vitest-dev/vitest
-  test: {
-    environment: 'jsdom',
-  },
-})
+  }),
+);

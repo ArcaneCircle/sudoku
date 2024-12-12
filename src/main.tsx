@@ -1,12 +1,23 @@
-import '../webxdc-scores.js'
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import { App } from './App'
+import "@webxdc/highscores";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { App } from "./App";
 
-const container = document.getElementById('root')
-const root = createRoot(container!)
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+window.highscores
+  .init({
+    onHighscoresChanged: () => {
+      const scoreboard = document.getElementById("scoreboard");
+      if (scoreboard) {
+        scoreboard.innerHTML = window.highscores.renderScoreboard().innerHTML;
+      }
+    },
+  })
+  .then(() => {
+    const container = document.getElementById("root");
+    const root = createRoot(container!);
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>,
+    );
+  });

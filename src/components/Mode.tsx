@@ -1,5 +1,5 @@
 interface ModeProps {
-  onClickMode: () => void
+  onClickMode: () => void;
 }
 
 /**
@@ -8,14 +8,15 @@ interface ModeProps {
  */
 export const Mode = (props: ModeProps) => {
   return (
-    <div className={'status__action-fast-mode'}>
-      <label className={'status__action-fast-mode-switch'}>
+    <div className={"status__action-fast-mode"}>
+      <label className={"status__action-fast-mode-switch"}>
         <input type="checkbox" />
-        <span className={'status__action-fast-mode-slider'}
+        <span
+          className={"status__action-fast-mode-slider"}
           onClick={props.onClickMode}
         ></span>
       </label>
       <p className="status__action-text">Fast Mode</p>
     </div>
-  )
-}
+  );
+};
